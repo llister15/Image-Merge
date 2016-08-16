@@ -73,7 +73,15 @@ namespace Image_Merge {
 
         // Start Merge Button Click Event
         private void startBtn_Click ( object sender , EventArgs e ) {
+            validation sourceCheck = new validation ( sourceText.Text );
+            validation overlayCheck = new validation ( overlayText.Text );
+            validation destinationCheck = new validation ( destinationText.Text );
 
+            sourceCheck.emptyCheck ( "source directory" );
+            overlayCheck.emptyCheck ( "overlay file" );
+            destinationCheck.emptyCheck ( "destination directory" );
+
+            overlayCheck.fileCheck ();
         }
 
         // Preview Button Click Event
