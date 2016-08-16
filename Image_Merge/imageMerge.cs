@@ -78,7 +78,14 @@ namespace Image_Merge {
 
         // Preview Button Click Event
         private void previewBtn_Click ( object sender , EventArgs e ) {
+            Preview previewpage = new Preview ();
+            previewpage.Show ();
+        }
 
+        // Preview Menu Button Click Event
+        private void openToolStripMenuItem_Click ( object sender , EventArgs e ) {
+            Preview previewpage = new Preview ();
+            previewpage.Show ();
         }
 
         // Clear Button Click Event
@@ -123,5 +130,24 @@ namespace Image_Merge {
         private void exitNoConfirmToolStripMenuItem_Click ( object sender , EventArgs e ) {
             Application.Exit ();
         }
+
+        // About Menu Button Click Event
+        private void aboutToolStripMenuItem_Click ( object sender , EventArgs e ) {
+            About aboutpage = new About ();
+            aboutpage.Show ();
+        }
+
+        // Options Menu Button Click Event
+        private void optionsToolStripMenuItem_Click ( object sender , EventArgs e ) {
+            Metadata metainput = new Metadata ();
+            metainput.Show ();
+        }
+
+        // Options Button Click Event
+        private void optBtn_Click ( object sender , EventArgs e ) {
+            Metadata metainput = new Metadata ();
+            metainput.Show ();
+        }
+
     } // End of Form
 } // End of namespace

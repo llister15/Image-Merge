@@ -40,8 +40,8 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitNoConfirmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +67,7 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.enableTextChkBox = new System.Windows.Forms.CheckBox();
-            this.exitNoConfirmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optBtn = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textoptionIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alignmentIcon)).BeginInit();
@@ -87,10 +87,10 @@
             this.selectSourceBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.selectSourceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectSourceBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.selectSourceBtn.Location = new System.Drawing.Point(123, 186);
+            this.selectSourceBtn.Location = new System.Drawing.Point(90, 136);
             this.selectSourceBtn.Margin = new System.Windows.Forms.Padding(0);
             this.selectSourceBtn.Name = "selectSourceBtn";
-            this.selectSourceBtn.Size = new System.Drawing.Size(55, 50);
+            this.selectSourceBtn.Size = new System.Drawing.Size(45, 36);
             this.selectSourceBtn.TabIndex = 0;
             this.selectSourceBtn.UseVisualStyleBackColor = false;
             this.selectSourceBtn.Click += new System.EventHandler(this.sourceBtn_Click);
@@ -99,18 +99,18 @@
             // 
             this.sourceText.BackColor = System.Drawing.SystemColors.Menu;
             this.sourceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sourceText.Location = new System.Drawing.Point(37, 267);
+            this.sourceText.Location = new System.Drawing.Point(35, 197);
             this.sourceText.Name = "sourceText";
             this.sourceText.ReadOnly = true;
-            this.sourceText.Size = new System.Drawing.Size(217, 23);
-            this.sourceText.TabIndex = 1;
+            this.sourceText.Size = new System.Drawing.Size(179, 23);
+            this.sourceText.TabIndex = 3;
             // 
             // sourceLabel
             // 
             this.sourceLabel.AutoSize = true;
             this.sourceLabel.BackColor = System.Drawing.Color.Transparent;
             this.sourceLabel.Font = new System.Drawing.Font("DejaVu Serif Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sourceLabel.Location = new System.Drawing.Point(52, 249);
+            this.sourceLabel.Location = new System.Drawing.Point(32, 179);
             this.sourceLabel.Name = "sourceLabel";
             this.sourceLabel.Size = new System.Drawing.Size(182, 15);
             this.sourceLabel.TabIndex = 2;
@@ -125,7 +125,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip.Size = new System.Drawing.Size(781, 24);
+            this.menuStrip.Size = new System.Drawing.Size(634, 24);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -160,6 +160,7 @@
             this.openToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.openToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.openToolStripMenuItem.Text = "Preview";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
@@ -190,26 +191,29 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // exitNoConfirmToolStripMenuItem
+            // 
+            this.exitNoConfirmToolStripMenuItem.Name = "exitNoConfirmToolStripMenuItem";
+            this.exitNoConfirmToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
+            this.exitNoConfirmToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.exitNoConfirmToolStripMenuItem.Text = "Exit No Confirm";
+            this.exitNoConfirmToolStripMenuItem.Visible = false;
+            this.exitNoConfirmToolStripMenuItem.Click += new System.EventHandler(this.exitNoConfirmToolStripMenuItem_Click);
+            // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
-            // customizeToolStripMenuItem
-            // 
-            this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.customizeToolStripMenuItem.Text = "&Customize";
-            // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -222,8 +226,9 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // selectOverlayBtn
             // 
@@ -235,10 +240,10 @@
             this.selectOverlayBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Beige;
             this.selectOverlayBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.selectOverlayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selectOverlayBtn.Location = new System.Drawing.Point(366, 181);
+            this.selectOverlayBtn.Location = new System.Drawing.Point(313, 130);
             this.selectOverlayBtn.Name = "selectOverlayBtn";
-            this.selectOverlayBtn.Size = new System.Drawing.Size(65, 61);
-            this.selectOverlayBtn.TabIndex = 4;
+            this.selectOverlayBtn.Size = new System.Drawing.Size(57, 49);
+            this.selectOverlayBtn.TabIndex = 1;
             this.selectOverlayBtn.UseVisualStyleBackColor = false;
             this.selectOverlayBtn.Click += new System.EventHandler(this.selectOverlayBtn_Click);
             // 
@@ -252,10 +257,10 @@
             this.selectDestinationBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Beige;
             this.selectDestinationBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.selectDestinationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selectDestinationBtn.Location = new System.Drawing.Point(613, 186);
+            this.selectDestinationBtn.Location = new System.Drawing.Point(516, 136);
             this.selectDestinationBtn.Name = "selectDestinationBtn";
-            this.selectDestinationBtn.Size = new System.Drawing.Size(59, 50);
-            this.selectDestinationBtn.TabIndex = 5;
+            this.selectDestinationBtn.Size = new System.Drawing.Size(51, 38);
+            this.selectDestinationBtn.TabIndex = 2;
             this.selectDestinationBtn.UseVisualStyleBackColor = false;
             this.selectDestinationBtn.Click += new System.EventHandler(this.selectDestinationBtn_Click);
             // 
@@ -263,28 +268,28 @@
             // 
             this.overlayText.BackColor = System.Drawing.SystemColors.Menu;
             this.overlayText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.overlayText.Location = new System.Drawing.Point(287, 268);
+            this.overlayText.Location = new System.Drawing.Point(254, 197);
             this.overlayText.Name = "overlayText";
             this.overlayText.ReadOnly = true;
-            this.overlayText.Size = new System.Drawing.Size(219, 22);
-            this.overlayText.TabIndex = 6;
+            this.overlayText.Size = new System.Drawing.Size(166, 22);
+            this.overlayText.TabIndex = 4;
             // 
             // destinationText
             // 
             this.destinationText.BackColor = System.Drawing.SystemColors.Menu;
             this.destinationText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.destinationText.Location = new System.Drawing.Point(540, 268);
+            this.destinationText.Location = new System.Drawing.Point(456, 197);
             this.destinationText.Name = "destinationText";
             this.destinationText.ReadOnly = true;
-            this.destinationText.Size = new System.Drawing.Size(217, 22);
-            this.destinationText.TabIndex = 7;
+            this.destinationText.Size = new System.Drawing.Size(166, 22);
+            this.destinationText.TabIndex = 5;
             // 
             // overlayLabel
             // 
             this.overlayLabel.AutoSize = true;
             this.overlayLabel.BackColor = System.Drawing.Color.Transparent;
             this.overlayLabel.Font = new System.Drawing.Font("DejaVu Serif Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.overlayLabel.Location = new System.Drawing.Point(309, 249);
+            this.overlayLabel.Location = new System.Drawing.Point(251, 179);
             this.overlayLabel.Name = "overlayLabel";
             this.overlayLabel.Size = new System.Drawing.Size(169, 15);
             this.overlayLabel.TabIndex = 8;
@@ -295,7 +300,7 @@
             this.destinationLabel.AutoSize = true;
             this.destinationLabel.BackColor = System.Drawing.Color.Transparent;
             this.destinationLabel.Font = new System.Drawing.Font("DejaVu Serif Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.destinationLabel.Location = new System.Drawing.Point(564, 249);
+            this.destinationLabel.Location = new System.Drawing.Point(453, 182);
             this.destinationLabel.Name = "destinationLabel";
             this.destinationLabel.Size = new System.Drawing.Size(169, 15);
             this.destinationLabel.TabIndex = 9;
@@ -306,7 +311,7 @@
             this.textoptionLabel.AutoSize = true;
             this.textoptionLabel.BackColor = System.Drawing.Color.Transparent;
             this.textoptionLabel.Font = new System.Drawing.Font("DejaVu Sans Mono", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textoptionLabel.Location = new System.Drawing.Point(72, 324);
+            this.textoptionLabel.Location = new System.Drawing.Point(55, 240);
             this.textoptionLabel.Name = "textoptionLabel";
             this.textoptionLabel.Size = new System.Drawing.Size(142, 22);
             this.textoptionLabel.TabIndex = 10;
@@ -317,7 +322,7 @@
             this.textoptionIcon.BackColor = System.Drawing.Color.Transparent;
             this.textoptionIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.textoptionIcon.Image = global::Image_Merge.Properties.Resources.textOptIcon;
-            this.textoptionIcon.Location = new System.Drawing.Point(25, 318);
+            this.textoptionIcon.Location = new System.Drawing.Point(8, 234);
             this.textoptionIcon.Name = "textoptionIcon";
             this.textoptionIcon.Size = new System.Drawing.Size(41, 32);
             this.textoptionIcon.TabIndex = 12;
@@ -328,7 +333,7 @@
             this.alignmentIcon.BackColor = System.Drawing.Color.Transparent;
             this.alignmentIcon.BackgroundImage = global::Image_Merge.Properties.Resources.alignmentIcon;
             this.alignmentIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.alignmentIcon.Location = new System.Drawing.Point(25, 370);
+            this.alignmentIcon.Location = new System.Drawing.Point(8, 286);
             this.alignmentIcon.Name = "alignmentIcon";
             this.alignmentIcon.Size = new System.Drawing.Size(41, 36);
             this.alignmentIcon.TabIndex = 13;
@@ -339,7 +344,7 @@
             this.fontIcon.BackColor = System.Drawing.Color.Transparent;
             this.fontIcon.BackgroundImage = global::Image_Merge.Properties.Resources.fontSizeIcon;
             this.fontIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fontIcon.Location = new System.Drawing.Point(25, 421);
+            this.fontIcon.Location = new System.Drawing.Point(8, 337);
             this.fontIcon.Name = "fontIcon";
             this.fontIcon.Size = new System.Drawing.Size(41, 34);
             this.fontIcon.TabIndex = 14;
@@ -350,7 +355,7 @@
             this.fontcolorIcon.BackColor = System.Drawing.Color.Transparent;
             this.fontcolorIcon.BackgroundImage = global::Image_Merge.Properties.Resources.colorIcon;
             this.fontcolorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fontcolorIcon.Location = new System.Drawing.Point(25, 461);
+            this.fontcolorIcon.Location = new System.Drawing.Point(8, 377);
             this.fontcolorIcon.Name = "fontcolorIcon";
             this.fontcolorIcon.Size = new System.Drawing.Size(41, 40);
             this.fontcolorIcon.TabIndex = 15;
@@ -361,7 +366,7 @@
             this.textinputIcon.BackColor = System.Drawing.Color.Transparent;
             this.textinputIcon.BackgroundImage = global::Image_Merge.Properties.Resources.noteIcon;
             this.textinputIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.textinputIcon.Location = new System.Drawing.Point(25, 520);
+            this.textinputIcon.Location = new System.Drawing.Point(8, 434);
             this.textinputIcon.Name = "textinputIcon";
             this.textinputIcon.Size = new System.Drawing.Size(43, 50);
             this.textinputIcon.TabIndex = 16;
@@ -377,14 +382,13 @@
             this.alignmentBox.FormattingEnabled = true;
             this.alignmentBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.alignmentBox.Items.AddRange(new object[] {
-            "Please make a selection",
             "Left",
             "Center",
             "Right"});
-            this.alignmentBox.Location = new System.Drawing.Point(90, 383);
+            this.alignmentBox.Location = new System.Drawing.Point(73, 299);
             this.alignmentBox.Name = "alignmentBox";
             this.alignmentBox.Size = new System.Drawing.Size(249, 23);
-            this.alignmentBox.TabIndex = 17;
+            this.alignmentBox.TabIndex = 7;
             this.alignmentBox.Text = "Please make a selection";
             this.alignmentBox.ValueMember = "Please make a selection";
             // 
@@ -393,10 +397,15 @@
             this.fontsizeBox.Enabled = false;
             this.fontsizeBox.Font = new System.Drawing.Font("DejaVu Serif Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fontsizeBox.FormattingEnabled = true;
-            this.fontsizeBox.Location = new System.Drawing.Point(90, 432);
+            this.fontsizeBox.Items.AddRange(new object[] {
+            "Small",
+            "Medium",
+            "Large",
+            "X-Large"});
+            this.fontsizeBox.Location = new System.Drawing.Point(73, 348);
             this.fontsizeBox.Name = "fontsizeBox";
             this.fontsizeBox.Size = new System.Drawing.Size(249, 23);
-            this.fontsizeBox.TabIndex = 18;
+            this.fontsizeBox.TabIndex = 8;
             this.fontsizeBox.Text = "Please make a selection";
             // 
             // fontcolorBox
@@ -404,20 +413,28 @@
             this.fontcolorBox.Enabled = false;
             this.fontcolorBox.Font = new System.Drawing.Font("DejaVu Serif Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fontcolorBox.FormattingEnabled = true;
-            this.fontcolorBox.Location = new System.Drawing.Point(90, 478);
+            this.fontcolorBox.Items.AddRange(new object[] {
+            "Black",
+            "Blue",
+            "White",
+            "Red",
+            "Yellow",
+            "Orange",
+            "Pink"});
+            this.fontcolorBox.Location = new System.Drawing.Point(73, 394);
             this.fontcolorBox.Name = "fontcolorBox";
             this.fontcolorBox.Size = new System.Drawing.Size(249, 23);
-            this.fontcolorBox.TabIndex = 19;
+            this.fontcolorBox.TabIndex = 9;
             this.fontcolorBox.Text = "Please make a selection";
             // 
             // customText
             // 
             this.customText.Enabled = false;
             this.customText.Font = new System.Drawing.Font("DejaVu Serif Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customText.Location = new System.Drawing.Point(90, 547);
+            this.customText.Location = new System.Drawing.Point(73, 453);
             this.customText.Name = "customText";
-            this.customText.Size = new System.Drawing.Size(668, 23);
-            this.customText.TabIndex = 20;
+            this.customText.Size = new System.Drawing.Size(549, 23);
+            this.customText.TabIndex = 10;
             this.customText.Text = "Enter your custom text here...";
             // 
             // startBtn
@@ -425,14 +442,15 @@
             this.startBtn.BackColor = System.Drawing.Color.Transparent;
             this.startBtn.BackgroundImage = global::Image_Merge.Properties.Resources.startButton;
             this.startBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.startBtn.FlatAppearance.BorderSize = 0;
             this.startBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Beige;
             this.startBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.startBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startBtn.Location = new System.Drawing.Point(483, 346);
+            this.startBtn.Location = new System.Drawing.Point(390, 259);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(96, 60);
-            this.startBtn.TabIndex = 21;
+            this.startBtn.TabIndex = 11;
             this.startBtn.UseVisualStyleBackColor = false;
             this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
@@ -446,10 +464,10 @@
             this.previewBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Beige;
             this.previewBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.previewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.previewBtn.Location = new System.Drawing.Point(634, 348);
+            this.previewBtn.Location = new System.Drawing.Point(512, 263);
             this.previewBtn.Name = "previewBtn";
             this.previewBtn.Size = new System.Drawing.Size(90, 56);
-            this.previewBtn.TabIndex = 22;
+            this.previewBtn.TabIndex = 12;
             this.previewBtn.UseVisualStyleBackColor = false;
             this.previewBtn.Click += new System.EventHandler(this.previewBtn_Click);
             // 
@@ -463,10 +481,10 @@
             this.clearBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Beige;
             this.clearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBtn.Location = new System.Drawing.Point(483, 445);
+            this.clearBtn.Location = new System.Drawing.Point(390, 367);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(96, 56);
-            this.clearBtn.TabIndex = 23;
+            this.clearBtn.TabIndex = 13;
             this.clearBtn.UseVisualStyleBackColor = false;
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
@@ -480,41 +498,47 @@
             this.exitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Beige;
             this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitBtn.Location = new System.Drawing.Point(634, 445);
+            this.exitBtn.Location = new System.Drawing.Point(512, 367);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(89, 56);
-            this.exitBtn.TabIndex = 24;
+            this.exitBtn.TabIndex = 14;
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 589);
+            this.progressBar1.Location = new System.Drawing.Point(9, 492);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(745, 10);
+            this.progressBar1.Size = new System.Drawing.Size(613, 13);
             this.progressBar1.TabIndex = 25;
             // 
             // enableTextChkBox
             // 
             this.enableTextChkBox.AutoSize = true;
+            this.enableTextChkBox.BackColor = System.Drawing.Color.Transparent;
             this.enableTextChkBox.Font = new System.Drawing.Font("DejaVu Sans Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableTextChkBox.Location = new System.Drawing.Point(214, 324);
+            this.enableTextChkBox.Location = new System.Drawing.Point(197, 241);
             this.enableTextChkBox.Name = "enableTextChkBox";
             this.enableTextChkBox.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.enableTextChkBox.Size = new System.Drawing.Size(125, 22);
-            this.enableTextChkBox.TabIndex = 26;
+            this.enableTextChkBox.TabIndex = 6;
             this.enableTextChkBox.Text = "Enable Text";
-            this.enableTextChkBox.UseVisualStyleBackColor = true;
+            this.enableTextChkBox.UseVisualStyleBackColor = false;
             this.enableTextChkBox.CheckedChanged += new System.EventHandler(this.enableTextChkBox_CheckedChanged);
             // 
-            // exitNoConfirmToolStripMenuItem
+            // optBtn
             // 
-            this.exitNoConfirmToolStripMenuItem.Name = "exitNoConfirmToolStripMenuItem";
-            this.exitNoConfirmToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
-            this.exitNoConfirmToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.exitNoConfirmToolStripMenuItem.Text = "Exit No Confirm";
-            this.exitNoConfirmToolStripMenuItem.Visible = false;
-            this.exitNoConfirmToolStripMenuItem.Click += new System.EventHandler(this.exitNoConfirmToolStripMenuItem_Click);
+            this.optBtn.BackColor = System.Drawing.Color.Transparent;
+            this.optBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("optBtn.BackgroundImage")));
+            this.optBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.optBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.optBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.optBtn.Location = new System.Drawing.Point(585, 27);
+            this.optBtn.Name = "optBtn";
+            this.optBtn.Size = new System.Drawing.Size(37, 35);
+            this.optBtn.TabIndex = 15;
+            this.optBtn.UseVisualStyleBackColor = false;
+            this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
             // 
             // ImageMerge
             // 
@@ -523,7 +547,8 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::Image_Merge.Properties.Resources.Image_Merge_UI;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(781, 609);
+            this.ClientSize = new System.Drawing.Size(634, 511);
+            this.Controls.Add(this.optBtn);
             this.Controls.Add(this.enableTextChkBox);
             this.Controls.Add(this.selectDestinationBtn);
             this.Controls.Add(this.destinationLabel);
@@ -554,8 +579,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(797, 648);
-            this.MinimumSize = new System.Drawing.Size(797, 648);
+            this.MaximumSize = new System.Drawing.Size(650, 550);
+            this.MinimumSize = new System.Drawing.Size(650, 550);
             this.Name = "ImageMerge";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image Merge";
@@ -585,7 +610,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
@@ -612,6 +636,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.CheckBox enableTextChkBox;
         private System.Windows.Forms.ToolStripMenuItem exitNoConfirmToolStripMenuItem;
+        private System.Windows.Forms.Button optBtn;
     }
 }
 
